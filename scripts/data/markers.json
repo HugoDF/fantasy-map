@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cursed-swamps",
+    "left": 100,
+    "top": 100,
+    "hoverText": "cursed-swamps"
+  }
+  {
+    "id": "ivory-kingdoms",
+    "left": 450,
+    "top": 400,
+    "hoverText": "ivory-kingdoms"
+  },
+  {
+    "id": "northern-mountains",
+    "left": 743,
+    "top": 400,
+    "hoverText": "northern-mountains"
+  },
+  {
+    "id": "steppes",
+    "left": 1085,
+    "top": 250,
+    "hoverText": "stepps"
+  },
+  {
+    "id": "location-4",
+    "left": 600,
+    "top": 300,
+    "hoverText": "someHoverText"
+  }
+]

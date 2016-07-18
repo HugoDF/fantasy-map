@@ -1,0 +1,5 @@
+@import '../mixins/fullScreen';
+.Location {
+  @include fullScreen;
+  text-align: center;
+}

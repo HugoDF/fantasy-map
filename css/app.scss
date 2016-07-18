@@ -1,0 +1,15 @@
+@import '../node_modules/reset-css/_reset';
+@import 'components/leftNav';
+@import 'components/rightNav';
+@import 'components/location';
+@import 'components/locations';
+@import 'components/marker';
+
+.Map {
+  height: 100%;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: sans-serif;
+}
