@@ -14,9 +14,20 @@ var buffer = require('vinyl-buffer');
 
 var imagemin = require('gulp-imagemin');
 
+var ghPages = require('gulp-gh-pages');
+
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var historyApiFallback = require('connect-history-api-fallback')
+
+/*
+  ghdeploy Task
+*/
+
+gulp.task('gh-deploy', function() {
+  gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
 
 /*
   HTML Task
