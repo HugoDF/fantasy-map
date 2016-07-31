@@ -8,7 +8,9 @@
 .Map {
   height: 100%;
   background-image: url('/images/background.jpg');
-  background-size: cover;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: black;
   background-position: center;
   color: white;
   font-family: sans-serif;
