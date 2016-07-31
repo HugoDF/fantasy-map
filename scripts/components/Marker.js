@@ -16,7 +16,7 @@ export default class Marker extends React.Component {
       <Link
         className="Marker"
         style={style}
-        to={`/location/${id}`}
+        to={`/locations/${id}`}
       >
         <span className="marker-icon" />
         <span className="hover-text">{hoverText}</span>

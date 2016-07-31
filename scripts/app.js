@@ -1,6 +1,7 @@
 const React               = require('react');
 const ReactDOM            = require('react-dom');
 const { Router, Route,
+        IndexRoute,
         browserHistory }  = require('react-router');
 
 const LeftNav             = require('./components/LeftNav');
@@ -16,12 +17,12 @@ class Map extends React.Component {
   constructor(args) {
     super(args);
     this.state = {
-      markers
+      markers,
+      locations
     }
   }
   render() {
     const children = React.cloneElement(this.props.children, {...(this.state)});
-
     return (
       <div className="Map" style={{height: window.outerHeight}}>
         <LeftNav />
@@ -37,8 +38,9 @@ class App extends React.Component {
     return (
       <Router history={browserHistory}>
         <Route path="/" component={Map}>
+          <IndexRoute component={Locations} />
           <Route path="/locations" component={Locations} />
-          <Route path="/location/:location" component={Location} />
+          <Route path="/locations/:location" component={Location} />
         </Route>
       </Router>
     );

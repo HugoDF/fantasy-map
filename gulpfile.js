@@ -12,6 +12,8 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var buffer = require('vinyl-buffer');
 
+var imagemin = require('gulp-imagemin');
+
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var historyApiFallback = require('connect-history-api-fallback')
@@ -45,6 +47,7 @@ gulp.task('styles',function() {
 */
 gulp.task('images',function(){
   gulp.src('images/**')
+    .pipe(imagemin())
     .pipe(gulp.dest('./build/images'))
 });
 

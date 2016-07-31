@@ -1,5 +1,34 @@
 @import '../mixins/fullScreen';
+@import '../variables';
 .Location {
+  .left-arrow,
+  .right-arrow,
+  .panorama-image {
+    user-select: none;
+  }
+  .panorama-container {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
+  .panorama-image {
+    height: 100%;
+  }
+  .left-arrow,
+  .right-arrow {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding-top: 25%;
+    background-color: transparentize(grey, .9);
+    width: $nav-width/2;
+  }
+  .left-arrow {
+    left: $nav-width;
+  }
+  .right-arrow {
+    right: $nav-width;
+  }
   @include fullScreen;
   text-align: center;
 }
