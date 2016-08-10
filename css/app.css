@@ -44,7 +44,7 @@ table {
   border-spacing: 0; }
 
 .LeftNav {
-  background-image: url("/images/menu-concordatside.png");
+  background-image: url("/fantasy-map/images/menu-concordatside.png");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -54,7 +54,7 @@ table {
   width: 200px; }
 
 .RightNav {
-  background-image: url("/images/menu-empireside.png");
+  background-image: url("/fantasy-map/images/menu-empireside.png");
   background-size: cover;
   background-position: center;
   position: absolute;
