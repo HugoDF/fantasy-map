@@ -11,17 +11,18 @@ var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var buffer = require('vinyl-buffer');
+var replace = require('gulp-replace');
 
 var imagemin = require('gulp-imagemin');
 
 var ghPages = require('gulp-gh-pages');
 
 var hbs = require('gulp-hbs');
-hbs.registerHelper('asset_path', function (asset) {
-  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'build'){
-    return '/fantasy-map' + asset;
-  }
-  return asset; 
+var baseUrl = ( process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'build' )
+          ? '/fantasy-map'
+          : '';
+hbs.registerHelper('asset_path', function (assetPath) {
+  return baseUrl + assetPath; 
 });
 
 var browserSync = require('browser-sync');
@@ -56,6 +57,7 @@ gulp.task('styles',function() {
   // Compiles CSS
   gulp.src('css/app.scss')
     .pipe(sass())
+    .pipe(replace('$asset_path', baseUrl))
     .pipe(autoprefixer())
     .pipe(gulp.dest('./build/css/'))
     .pipe(reload({stream:true}))

@@ -30,11 +30,14 @@ export default class Location extends React.Component {
     });
     const locationId = this.props.params.location;
     const location = this.props.locations.find((el) => (el.id === locationId));
+    const env = process.env.NODE_ENV;
+    const baseUrl = (env === 'build' || env === 'production') ? '/fantasy-map' : '';
+    const imageUrl = baseUrl + location.backgroundUrl;
     return (
       <div className="Location">
         <div className="panorama-container" onDragStart={(e)=>{console.log(e)}}>
           <div className="left-arrow" onClick={this.scrollPanorama('left')}>&lt;</div>
-          <img className="panorama-image" src={location.backgroundUrl}/>
+          <img className="panorama-image" src={imageUrl}/>
           <div className="right-arrow" onClick={this.scrollPanorama('right')}>&gt;</div>
         </div>
       </div>
