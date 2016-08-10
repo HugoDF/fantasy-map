@@ -16,6 +16,14 @@ var imagemin = require('gulp-imagemin');
 
 var ghPages = require('gulp-gh-pages');
 
+var hbs = require('gulp-hbs');
+hbs.registerHelper('asset_path', function (asset) {
+  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'build'){
+    return '/fantasy-map' + asset;
+  }
+  return asset; 
+});
+
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var historyApiFallback = require('connect-history-api-fallback')
@@ -34,8 +42,8 @@ gulp.task('gh-deploy', function() {
 */
 
 gulp.task('html',function() {
-  // Compiles CSS
-  gulp.src('index.html')
+  gulp.src('index.json')
+    .pipe(hbs('index.hbs'))
     .pipe(gulp.dest('./build/'))
     .pipe(reload({stream:true}))
 });
@@ -130,3 +138,6 @@ gulp.task('default', ['images','styles','scripts','browser-sync', 'html'], funct
   gulp.watch('*.html', [ 'html' ]); // gulp watch for HTML changes
   return buildScript('app.js', true); // browserify watch for JS changes
 });
+
+gulp.task('build', [ 'images', 'styles', 'scripts', 'html' ]);
+gulp.task('deploy', [ 'gh-deploy' ]);

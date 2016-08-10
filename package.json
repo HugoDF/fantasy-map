@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "NODE_ENV=build gulp build",
+    "deploy": "rm -Rf ./build && npm run build && gulp deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -28,6 +30,7 @@
     "watchify": "3.4.0"
   },
   "dependencies": {
+    "gulp-hbs": "^0.2.0",
     "history": "^3.0.0",
     "normalize-scss": "^5.0.3",
     "react": "^15.2.1",

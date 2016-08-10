@@ -2,7 +2,7 @@ const React               = require('react');
 const ReactDOM            = require('react-dom');
 const { Router, Route,
         IndexRoute,
-        browserHistory }  = require('react-router');
+        hashHistory }  = require('react-router');
 
 const LeftNav             = require('./components/LeftNav');
 const RightNav            = require('./components/RightNav');
@@ -36,7 +36,7 @@ class Map extends React.Component {
 class App extends React.Component {
   render() {
     return (
-      <Router history={browserHistory}>
+      <Router history={hashHistory}>
         <Route path="/" component={Map}>
           <IndexRoute component={Locations} />
           <Route path="/locations" component={Locations} />
