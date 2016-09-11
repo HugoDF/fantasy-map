@@ -1,9 +1,9 @@
-const React = require('react');
+import React, { PropTypes } from 'react';
 
 export default class Location extends React.Component {
 
   static contextTypes = {
-       router: React.PropTypes.object
+       router: PropTypes.object
   };
 
   scrollPanorama(direction = 'right') {
@@ -30,9 +30,7 @@ export default class Location extends React.Component {
     });
     const locationId = this.props.params.location;
     const location = this.props.locations.find((el) => (el.id === locationId));
-    const env = process.env.NODE_ENV;
-    const baseUrl = (env === 'build' || env === 'production') ? '/fantasy-map' : '';
-    const imageUrl = baseUrl + location.backgroundUrl;
+    const imageUrl = '$baseUrl' + location.backgroundUrl;
     return (
       <div className="Location">
         <div className="panorama-container" onDragStart={(e)=>{console.log(e)}}>

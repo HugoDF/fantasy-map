@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "gulp watch",
     "build": "NODE_ENV=build gulp build",
     "clean": "rm -Rf ./build ./.publish",
     "deploy": "npm run clean && npm run build && gulp deploy",
@@ -11,11 +12,14 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "babel": "5.8.23",
-    "babelify": "6.4.0",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
+    "babelify": "^7.3.0",
     "browser-sync": "2.9.11",
-    "browserify": "11.2.0",
+    "browserify": "^13.1.0",
     "connect-history-api-fallback": "1.1.0",
     "gulp": "3.9.0",
     "gulp-autoprefixer": "3.1.0",
@@ -24,10 +28,10 @@
     "gulp-imagemin": "^3.0.2",
     "gulp-notify": "2.2.0",
     "gulp-rename": "1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "2.3.2",
     "gulp-uglify": "1.4.2",
     "gulp-util": "3.0.7",
-    "gulp-replace": "^0.5.4",
     "history": "^3.0.0",
     "normalize-scss": "^5.0.3",
     "react": "^15.2.1",
@@ -36,6 +40,7 @@
     "reset-css": "^2.0.2011012603",
     "vinyl-buffer": "1.0.0",
     "vinyl-source-stream": "1.1.0",
-    "watchify": "3.4.0"
-  }
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {}
 }

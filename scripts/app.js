@@ -1,17 +1,18 @@
-const React               = require('react');
-const ReactDOM            = require('react-dom');
-const { Router, Route,
+import React                from 'react';
+import ReactDOM             from 'react-dom';
+import { Router,
+        Route,
         IndexRoute,
-        hashHistory }  = require('react-router');
+        hashHistory }       from 'react-router';
 
-const LeftNav             = require('./components/LeftNav');
-const RightNav            = require('./components/RightNav');
-const Location            = require('./components/Location');
-const Locations           = require('./components/Locations');
+import LeftNav              from './components/LeftNav';
+import RightNav             from './components/RightNav';
+import Location             from './components/Location';
+import Locations            from './components/Locations';
 
 
-const markers             = require('./data/markers.json');
-const locations           = require('./data/locations.json');
+import markers              from './data/markers.json';
+import locations            from './data/locations.json';
 
 class Map extends React.Component {
   constructor(args) {

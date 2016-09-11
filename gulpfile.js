@@ -22,7 +22,7 @@ var baseUrl = ( process.env.NODE_ENV === 'production' || process.env.NODE_ENV ==
           ? '/fantasy-map'
           : '';
 hbs.registerHelper('asset_path', function (assetPath) {
-  return baseUrl + assetPath; 
+  return baseUrl + assetPath;
 });
 
 var browserSync = require('browser-sync');
@@ -87,47 +87,55 @@ gulp.task('browser-sync', function() {
 });
 
 function handleErrors() {
-  var args = Array.prototype.slice.call(arguments);
-  notify.onError({
-    title: 'Compile Error',
-    message: '<%= error.message %>'
-  }).apply(this, args);
-  this.emit('end'); // Keep gulp from hanging on this task
+    var args = Array.prototype.slice.call(arguments);
+    console.log(args);
+    notify.onError({
+        title: 'Compile Error',
+        message: '<%= error.message %>'
+    }).apply(this, args);
+    this.emit('end'); // Keep gulp from hanging on this task
+}
+
+function exitOnError() {
+    var args = Array.prototype.slice.call(arguments);
+    console.log(args);
+    process.exit(1);
 }
 
 function buildScript(file, watch) {
 
-  var props = {
-    entries: ['./scripts/' + file],
-    debug : true,
-    transform:  [ babelify.configure({ stage : 0 }) ]
-  };
+    var props = {
+        debug : true
+    };
+    const src = './scripts/' + file;
+    const defaultBundler = browserify(src, props);
+    // watchify() if watch requested, otherwise run browserify() once
+    const bundler = watch ? watchify(defaultBundler) : defaultBundler;
+    const augmentedBundler = bundler.transform(babelify);
 
-  // watchify() if watch requested, otherwise run browserify() once
-  var bundler = watch ? watchify(browserify(props)) : browserify(props);
+    function rebundle() {
+        var stream = augmentedBundler.bundle();
 
-  function rebundle() {
-    var stream = bundler.bundle();
-    return stream
-      .on('error', handleErrors)
-      .pipe(source(file))
-      .pipe(gulp.dest('./build/'))
-      // If you also want to uglify it
-      // .pipe(buffer())
-      // .pipe(uglify())
-      // .pipe(rename('app.min.js'))
-      // .pipe(gulp.dest('./build'))
-      .pipe(reload({stream:true}))
-  }
+        var errorHandler = watch ? handleErrors : exitOnError;
 
-  // listen for an update and run rebundle
-  bundler.on('update', function() {
-    rebundle();
-    gutil.log('Rebundle...');
-  });
+        return stream
+            .on('error', errorHandler)
+            .pipe(source(file))
+            // .pipe(buffer())
+            // .pipe(uglify())
+            // .pipe(rename('app.min.js'))
+            .pipe(gulp.dest('./build'))
+            .pipe(reload({ stream: true }))
+    }
 
-  // run it once the first time buildScript is called
-  return rebundle();
+    // listen for an update and run rebundle
+    bundler.on('update', function() {
+        rebundle();
+        gutil.log('Rebundle...');
+    });
+
+    // run it once the first time buildScript is called
+    return rebundle();
 }
 
 gulp.task('scripts', function() {
@@ -135,11 +143,13 @@ gulp.task('scripts', function() {
 });
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['images','styles','scripts','browser-sync', 'html'], function() {
+gulp.task('default', [ 'build','browser-sync' ], function() {
   gulp.watch('css/**/*', [ 'styles' ]); // gulp watch for sass changes
   gulp.watch('*.html', [ 'html' ]); // gulp watch for HTML changes
   return buildScript('app.js', true); // browserify watch for JS changes
 });
+
+gulp.task('watch', [ 'default' ]);
 
 gulp.task('build', [ 'images', 'styles', 'scripts', 'html' ]);
 gulp.task('deploy', [ 'gh-deploy' ]);

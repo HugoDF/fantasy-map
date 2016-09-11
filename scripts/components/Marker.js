@@ -1,6 +1,5 @@
-const React           = require('react');
-const { PropTypes }   = React;
-const { Link }        = require('react-router');
+import React, { PropTypes }     from 'react';
+import { Link }                 from 'react-router';
 
 export default class Marker extends React.Component {
   static propTypes = {
