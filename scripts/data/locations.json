@@ -1,6 +1,30 @@
 [
   {
-    "id": "ivory-kingdoms",
+    "id": "ivoryKingdoms",
     "backgroundUrl": "/images/ivory-kingdoms-panorama.jpg"
+  },
+  {
+    "id": "jungle",
+    "backgroundUrl": "/images/jungle-panorama.jpg"
+  },
+  {
+    "id": "desert",
+    "backgroundUrl": "/images/desert-panorama.jpg"
+  },
+  {
+    "id": "steppes",
+    "backgroundUrl": "/images/steppes-panorama.jpg"
+  },
+  {
+    "id": "swamps",
+    "backgroundUrl": "/images/swamps-panorama.jpg"
+  },
+  {
+    "id": "mountains",
+    "backgroundUrl": "/images/mountains-panorama.jpg"
+  },
+  {
+    "id": "plains",
+    "backgroundUrl": "/images/plains-panorama.jpg"
   }
 ]

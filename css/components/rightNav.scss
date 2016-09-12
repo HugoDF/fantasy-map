@@ -1,11 +1,11 @@
 @import '../variables';
 .RightNav {
-  background-image: url('$asset_path/images/menu-empireside.png');
+  background-image: url('$asset_path/images/menu-empire.png');
   background-size: cover;
   background-position: center;
   position: absolute;
   right: 0;
   top: 0;
-  height: 100%;
+  height: $nav-height;
   width: $nav-width;
 }

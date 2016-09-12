@@ -124,6 +124,7 @@ function buildScript(file, watch) {
             // .pipe(buffer())
             // .pipe(uglify())
             // .pipe(rename('app.min.js'))
+            .pipe(replace('$baseUrl', baseUrl))
             .pipe(gulp.dest('./build'))
             .pipe(reload({ stream: true }))
     }
