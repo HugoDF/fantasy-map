@@ -44,24 +44,24 @@ table {
   border-spacing: 0; }
 
 .LeftNav {
-  background-image: url("/fantasy-map/images/menu-concordatside.png");
+  background-image: url("/fantasy-map/images/menu-concordat.png");
   background-size: cover;
   background-position: center;
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
-  width: 200px; }
+  width: 30vh; }
 
 .RightNav {
-  background-image: url("/fantasy-map/images/menu-empireside.png");
+  background-image: url("/fantasy-map/images/menu-empire.png");
   background-size: cover;
   background-position: center;
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
-  width: 200px; }
+  width: 30vh; }
 
 .Location {
   height: 100%;
@@ -86,12 +86,12 @@ table {
     top: 0;
     height: 100%;
     padding-top: 25%;
-    background-color: rgba(128, 128, 128, 0.1);
-    width: 100px; }
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 15vh; }
   .Location .left-arrow {
-    left: 200px; }
+    left: 30vh; }
   .Location .right-arrow {
-    right: 200px; }
+    right: 30vh; }
 
 .Locations {
   height: 100%;
@@ -99,36 +99,24 @@ table {
   text-align: center;
   position: relative; }
 
-.Marker {
+.HoverArea {
   position: absolute;
-  z-index: 1; }
-  .Marker .marker-icon {
-    background-color: red;
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    border-radius: 999px; }
-  .Marker .hover-text {
-    display: none;
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    color: white; }
-    .Marker .hover-text:visited {
-      color: white; }
-  .Marker:hover .marker-icon {
-    background-color: blue; }
-  .Marker:hover .hover-text {
-    display: inline-block; }
+  z-index: 1;
+  cursor: pointer; }
 
 .Map {
   height: 100%;
+  background-size: cover;
   background-image: url("/fantasy-map/images/background.jpg");
-  background-size: 85%;
-  background-repeat: no-repeat;
-  background-color: black;
-  background-position: center;
   color: white;
   font-family: sans-serif; }
+  .Map .map-image {
+    background-image: url("/fantasy-map/images/map.png");
+    width: 1500px;
+    height: 843px;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
