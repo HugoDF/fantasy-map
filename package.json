@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp watch",
     "build": "NODE_ENV=build gulp build",
-    "clean": "rm -Rf ./build ./.publish",
+    "clean": "rm -Rf ./build",
     "deploy": "npm run clean && npm run build && gulp deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
