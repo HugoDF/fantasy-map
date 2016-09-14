@@ -46,7 +46,7 @@ table {
 .Map {
   height: 100%;
   background-size: cover;
-  background-image: url("/images/background.jpg");
+  background-image: url("/fantasy-map/images/background.jpg");
   color: white;
   font-family: sans-serif; }
   .Map .banner {
@@ -56,7 +56,7 @@ table {
     left: calc(50% - 300px);
     top: 0; }
   .Map .map-image {
-    background-image: url("/images/map.png");
+    background-image: url("/fantasy-map/images/map.png");
     width: 1500px;
     height: 843px;
     background-size: cover;
@@ -67,7 +67,7 @@ table {
             transform: translate(-50%, -50%); }
 
 .LeftNav {
-  background-image: url("/images/menu-concordat.png");
+  background-image: url("/fantasy-map/images/menu-concordat.png");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -78,7 +78,7 @@ table {
   width: 30vh; }
 
 .RightNav {
-  background-image: url("/images/menu-empire.png");
+  background-image: url("/fantasy-map/images/menu-empire.png");
   background-size: cover;
   background-position: center;
   position: absolute;
