@@ -1,25 +1,7 @@
 @import '../node_modules/reset-css/_reset';
+@import 'components/map';
 @import 'components/leftNav';
 @import 'components/rightNav';
 @import 'components/location';
 @import 'components/locations';
 @import 'components/hoverArea';
-
-.Map {
-  height: 100%;
-  background-size: cover;
-  background-image: url('$asset_path/images/background.jpg');
-  color: white;
-  font-family: sans-serif;
-
-  .map-image {
-    background-image: url('$asset_path/images/map.png');
-    width: 1500px;
-    height: 843px;
-    background-size: cover;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
