@@ -8,6 +8,7 @@ import { Router,
 import Map                  from './components/Map';
 import Location             from './components/Location';
 import Locations            from './components/Locations';
+import Race                 from './components/Race';
 
 class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
           <IndexRoute component={Locations} />
           <Route path="/locations" component={Locations} />
           <Route path="/locations/:location" component={Location} />
+          <Route path="/races/:race/:subrace" component={Race} />
         </Route>
       </Router>
     );

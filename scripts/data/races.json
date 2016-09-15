@@ -1,0 +1,42 @@
+{
+  "orcs": {
+    "subTypes": [
+      "brown",
+      "green"
+    ]
+  },
+  "darkElves": {
+    "subTypes": [
+      "whisper",
+      "decay"
+    ]
+  },
+  "goblins": {
+    "subTypes": [
+      "small",
+      "jungle",
+      "tall"
+    ]
+  },
+  "elves": {
+    "subTypes": [
+      "high",
+      "jungle",
+      "sea"
+    ]
+  },
+  "humans": {
+    "subTypes": [
+      "gold",
+      "ivory",
+      "obsidian"
+    ]
+  },
+  "dwarves": {
+    "subTypes": [
+      "mountain",
+      "iron",
+      "sand"
+    ]
+  }
+}

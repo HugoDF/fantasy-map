@@ -1,0 +1,37 @@
+.RaceSelector {
+  $size: 105px;
+  position: absolute;
+  border-radius: 9999px;
+  width: $size;
+  height: $size;
+
+  &:hover, &.hover {
+    border: solid 1px gold;
+  }
+
+  &.right {
+    right: 0;
+  }
+  &.left {
+    left: 0;
+  }
+}
+.raceOverlay{
+  width: 100px;
+  padding: 20px;
+  position: absolute;
+  img {
+    margin-bottom: 20px;
+    border-radius: 9999px;
+    border: solid 1px black;
+    &:hover{
+      border: solid 1px gold;
+    }
+  }
+  &.right {
+    left: 0;
+  }
+  &.left {
+    right: 0;
+  }
+}
