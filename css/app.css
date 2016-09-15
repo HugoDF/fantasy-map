@@ -153,6 +153,26 @@ table {
   text-align: center;
   position: relative; }
 
+.Race {
+  height: 100%;
+  width: 100%;
+  text-align: center; }
+  .Race .panorama-image {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+  .Race .panorama-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    width: 100%;
+    height: 100%; }
+  .Race .panorama-image {
+    height: 100%; }
+
 .HoverArea {
   position: absolute;
   z-index: 1;
